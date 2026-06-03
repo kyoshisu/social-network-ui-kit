@@ -1,0 +1,166 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: $z-index-navbar;
+  background-color: $color-bg-card;
+  border-bottom: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4rem;
+  gap: $spacing-lg;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  flex-shrink: 0;
+}
+
+.navbar__logo {
+  width: 2rem;
+  height: 2rem;
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, $color-primary, $color-primary-active);
+}
+
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: $spacing-sm;
+  border-radius: $radius-md;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: $color-secondary-light;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-border-focus;
+    outline-offset: 2px;
+  }
+}
+
+.navbar__toggle-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: $color-text;
+  border-radius: 1px;
+  transition: transform $transition-base, opacity $transition-base;
+}
+
+.navbar--open .navbar__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar--open .navbar__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar--open .navbar__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+}
+
+.navbar__list {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.navbar__link {
+  display: block;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-text-muted;
+  border-radius: $radius-md;
+  transition: color $transition-fast, background-color $transition-fast;
+
+  &:hover {
+    color: $color-primary;
+    background-color: $color-primary-light;
+  }
+
+  &--active {
+    color: $color-primary;
+    background-color: $color-primary-light;
+  }
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+@media (max-width: $breakpoint-md) {
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__menu {
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: $spacing-md;
+    background-color: $color-bg-card;
+    border-bottom: 1px solid $color-border;
+    box-shadow: $shadow-lg;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height $transition-base, opacity $transition-base, visibility $transition-base;
+  }
+
+  .navbar--open .navbar__menu {
+    max-height: 80vh;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar__list {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .navbar__link {
+    padding: $spacing-md;
+  }
+
+  .navbar__actions {
+    flex-direction: column;
+    width: 100%;
+    padding-top: $spacing-md;
+    border-top: 1px solid $color-border;
+    margin-top: $spacing-sm;
+
+    .button {
+      width: 100%;
+    }
+  }
+}

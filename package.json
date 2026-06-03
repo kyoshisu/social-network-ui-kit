@@ -1,0 +1,12 @@
+{
+  "name": "social-network-ui-kit",
+  "version": "1.0.0",
+  "description": "UI Kit",
+  "scripts": {
+    "build:css": "sass scss/main.scss css/main.css --style=expanded && sass scss/docs.scss css/docs.css --style=expanded",
+    "watch:css": "sass --watch scss:css"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

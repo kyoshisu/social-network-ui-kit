@@ -1,0 +1,24 @@
+<div class="input">
+  <label class="input__label" for="username">Имя пользователя</label>
+  <div class="input__wrapper">
+    <input type="text" id="username" class="input__field" placeholder="Введите логин">
+  </div>
+</div>
+
+<div class="input input--with-icon">
+  <label class="input__label" for="search">Поиск постов</label>
+  <div class="input__wrapper">
+    <svg class="input__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+    </svg>
+    <input type="search" id="search" class="input__field" placeholder="Найти...">
+  </div>
+</div>
+
+<div class="input input--error">
+  <label class="input__label" for="email">Email</label>
+  <div class="input__wrapper">
+    <input type="email" id="email" class="input__field" value="invalid-email" aria-invalid="true">
+  </div>
+  <span class="input__error">Неверный email</span>
+</div>

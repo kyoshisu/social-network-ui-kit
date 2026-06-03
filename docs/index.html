@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Kit - Social Network</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/docs.css">
+</head>
+<body class="docs">
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="#" class="navbar__brand">
+        <span class="navbar__logo" aria-hidden="true"></span>
+        Social Network UI Kit
+      </a>
+      <button type="button" class="navbar__toggle" aria-label="Меню" aria-expanded="false">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+      <nav class="navbar__menu">
+        <ul class="navbar__list">
+          <li><a href="#buttons" class="navbar__link">Кнопки</a></li>
+          <li><a href="#input" class="navbar__link">Input</a></li>
+          <li><a href="#cards" class="navbar__link">Карточки</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="docs__hero">
+    <div class="container">
+      <h1 class="docs__hero-title">UI Kit - Social Network</h1>
+    </div>
+  </section>
+
+  <div class="container docs__layout">
+    <aside class="docs__nav">
+      <p class="docs__nav-title">Компоненты</p>
+      <a href="#buttons" class="docs__nav-link">Button</a>
+      <a href="#input" class="docs__nav-link">Input</a>
+      <a href="#dropdown" class="docs__nav-link">Dropdown</a>
+      <a href="#checkbox" class="docs__nav-link">Checkbox</a>
+      <a href="#cards" class="docs__nav-link">Card</a>
+      <a href="#navbar" class="docs__nav-link">Navbar</a>
+      <a href="#layout" class="docs__nav-link">Layout</a>
+    </aside>
+
+    <main>
+      <section id="buttons" class="docs__section">
+        <h2 class="docs__section-title">Button</h2>
+
+        <h3>Варианты</h3>
+        <div class="docs__preview">
+          <div class="docs__row">
+            <button type="button" class="button button--primary button--size-medium">Primary</button>
+            <button type="button" class="button button--secondary button--size-medium">Secondary</button>
+            <button type="button" class="button button--primary button--size-medium" disabled>Disabled</button>
+          </div>
+        </div>
+
+        <h3>Размеры</h3>
+        <div class="docs__preview">
+          <div class="docs__row">
+            <button type="button" class="button button--primary button--size-small">Small</button>
+            <button type="button" class="button button--primary button--size-medium">Medium</button>
+            <button type="button" class="button button--primary button--size-large">Large</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="input" class="docs__section">
+        <h2 class="docs__section-title">Input</h2>
+
+        <h3>Normal</h3>
+        <div class="docs__preview">
+          <div class="docs__stack">
+            <div class="input">
+              <label class="input__label" for="doc-username">Логин</label>
+              <div class="input__wrapper">
+                <input type="text" id="doc-username" class="input__field" placeholder="username">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>С иконкой</h3>
+        <div class="docs__preview">
+          <div class="docs__stack">
+            <div class="input input--with-icon">
+              <label class="input__label" for="doc-search">Поиск</label>
+              <div class="input__wrapper">
+                <svg class="input__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+                </svg>
+                <input type="search" id="doc-search" class="input__field" placeholder="Найти...">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Error</h3>
+        <div class="docs__preview">
+          <div class="docs__stack">
+            <div class="input input--error">
+              <label class="input__label" for="doc-email">Email</label>
+              <div class="input__wrapper">
+                <input type="email" id="doc-email" class="input__field" value="test">
+              </div>
+              <span class="input__error">Неверный email</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="dropdown" class="docs__section">
+        <h2 class="docs__section-title">Dropdown</h2>
+        <div class="docs__preview">
+          <div class="dropdown">
+            <button type="button" class="dropdown__toggle" aria-expanded="false">
+              <span class="dropdown__value">Все посты</span>
+              <svg class="dropdown__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="dropdown__menu">
+              <button type="button" class="dropdown__item dropdown__item--selected">Все посты</button>
+              <button type="button" class="dropdown__item">Мои посты</button>
+              <button type="button" class="dropdown__item">Подписки</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="checkbox" class="docs__section">
+        <h2 class="docs__section-title">Checkbox и Radio</h2>
+        <div class="docs__preview">
+          <div class="flex flex--gap-lg" style="flex-wrap: wrap;">
+            <div class="checkbox-group">
+              <span class="checkbox-group__title">Уведомления</span>
+              <label class="checkbox">
+                <input type="checkbox" class="checkbox__input" checked>
+                <span class="checkbox__box" aria-hidden="true"></span>
+                <span class="checkbox__label">Комментарии</span>
+              </label>
+              <label class="checkbox">
+                <input type="checkbox" class="checkbox__input">
+                <span class="checkbox__box" aria-hidden="true"></span>
+                <span class="checkbox__label">Подписчики</span>
+              </label>
+            </div>
+            <div class="radio-group">
+              <span class="radio-group__title">Профиль</span>
+              <label class="radio">
+                <input type="radio" name="doc-vis" class="radio__input" checked>
+                <span class="radio__circle" aria-hidden="true"></span>
+                <span class="radio__label">Открытый</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="doc-vis" class="radio__input">
+                <span class="radio__circle" aria-hidden="true"></span>
+                <span class="radio__label">Закрытый</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cards" class="docs__section">
+        <h2 class="docs__section-title">Card</h2>
+        <div class="docs__preview">
+          <div class="grid grid--auto-fill grid--gap-md">
+            <article class="card card--size-small">
+              <img class="card__image" src="../assets/post-placeholder.svg" alt="">
+              <div class="card__body">
+                <h3 class="card__title">Small</h3>
+                <p class="card__text">Текст поста.</p>
+                <footer class="card__footer"><span class="card__meta">@user</span></footer>
+              </div>
+            </article>
+            <article class="card card--size-medium">
+              <img class="card__image" src="../assets/post-placeholder.svg" alt="">
+              <div class="card__body">
+                <h3 class="card__title">Medium</h3>
+                <p class="card__text">Текст поста.</p>
+                <footer class="card__footer"><span class="card__meta">5 лайков</span></footer>
+              </div>
+            </article>
+            <article class="card card--no-image card--size-medium">
+              <div class="card__body">
+                <h3 class="card__title">Без картинки</h3>
+                <p class="card__text">Только текст.</p>
+              </div>
+            </article>
+            <article class="card card--size-large">
+              <img class="card__image" src="../assets/post-placeholder.svg" alt="">
+              <div class="card__body">
+                <h3 class="card__title">Large</h3>
+                <p class="card__text">Большая карточка.</p>
+                <footer class="card__footer">
+                  <button type="button" class="button button--primary button--size-small">Открыть</button>
+                </footer>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="navbar" class="docs__section">
+        <h2 class="docs__section-title">Navbar</h2>
+        <div class="docs__preview" style="padding: 0;">
+          <header class="navbar">
+            <div class="container navbar__inner">
+              <a href="#" class="navbar__brand">
+                <span class="navbar__logo" aria-hidden="true"></span>
+                Social Network
+              </a>
+              <button type="button" class="navbar__toggle" aria-label="Меню" aria-expanded="false">
+                <span class="navbar__toggle-bar"></span>
+                <span class="navbar__toggle-bar"></span>
+                <span class="navbar__toggle-bar"></span>
+              </button>
+              <nav class="navbar__menu">
+                <ul class="navbar__list">
+                  <li><a href="#" class="navbar__link navbar__link--active">Лента</a></li>
+                  <li><a href="#" class="navbar__link">Профиль</a></li>
+                </ul>
+              </nav>
+            </div>
+          </header>
+        </div>
+      </section>
+
+      <section id="layout" class="docs__section">
+        <h2 class="docs__section-title">Layout</h2>
+
+        <h3>Container</h3>
+        <div class="docs__preview docs__preview--dark" style="padding: 0;">
+          <div class="container container--centered" style="min-height: 100px; background: #1e293b; color: #fff;">
+            <p>container--centered</p>
+          </div>
+        </div>
+
+        <h3>Grid</h3>
+        <div class="docs__preview">
+          <div class="grid grid--auto-fill grid--gap-sm">
+            <div style="padding: 1rem; background: #eef2ff; border-radius: 0.5rem; text-align: center;">1</div>
+            <div style="padding: 1rem; background: #eef2ff; border-radius: 0.5rem; text-align: center;">2</div>
+            <div style="padding: 1rem; background: #eef2ff; border-radius: 0.5rem; text-align: center;">3</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/navbar.js"></script>
+  <script src="../js/dropdown.js"></script>
+</body>
+</html>
