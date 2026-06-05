@@ -1,14 +1,23 @@
 import { memo, useCallback } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useShop } from '../context/ShopContext';
+import { useAuth } from '../context/AuthContext';
+import NetworkStatus from './NetworkStatus';
 
-function Layout({ children }) {
+function Layout() {
   const { favoritesCount } = useShop();
+  const { user, isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
 
   const linkClass = useCallback(
     ({ isActive }) => 'navbar__link' + (isActive ? ' navbar__link--active' : ''),
     []
   );
+
+  const handleLogout = useCallback(() => {
+    logout();
+    navigate('/login', { replace: true });
+  }, [logout, navigate]);
 
   return (
     <div className="app">
@@ -32,10 +41,27 @@ function Layout({ children }) {
               О нас
             </NavLink>
             <span className="navbar__badge">В избранном: {favoritesCount}</span>
+            <div className="navbar__auth">
+              <NetworkStatus />
+              {isAuthenticated && user ? (
+                <>
+                  <span className="navbar__user">{user.name}</span>
+                  <button type="button" className="button button--secondary button--small" onClick={handleLogout}>
+                    Выйти
+                  </button>
+                </>
+              ) : (
+                <NavLink to="/login" className="button button--primary button--small">
+                  Войти
+                </NavLink>
+              )}
+            </div>
           </nav>
         </div>
       </header>
-      <main className="container main">{children}</main>
+      <main className="container main">
+        <Outlet />
+      </main>
     </div>
   );
 }

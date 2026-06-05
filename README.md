@@ -82,7 +82,7 @@ npm run dev
 
 Сборка: `npm run build` (в папке `app`).
 
-API: [fakestoreapi.com](https://fakestoreapi.com). Каталог кэшируется в Context, избранное хранится в Context и localStorage.
+API: [fakestoreapi.com](https://fakestoreapi.com). Вход: POST [reqres.in/api/login](https://reqres.in/api/login) (тест: `eve.holt@reqres.in` / `cityslicka`). Токен в localStorage, защищённые маршруты, Service Worker для офлайна.
 
 Маршрут `/favourites` — страница избранного (название, количество, мета, удаление).
 
