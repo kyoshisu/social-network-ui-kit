@@ -61,6 +61,29 @@ node async-javascript/task3-async-await.js
 
 Задание 4 — открыть `async-javascript/task4-progress-bar.html` в браузере.
 
+## React-приложение (маршрутизация, API, Context)
+
+Папка `app/` — каталог на React Router.
+
+| Маршрут | Страница |
+|---------|----------|
+| `/` | Главная |
+| `/list` | Список товаров |
+| `/list/:id` | Карточка товара |
+| `/about` | О проекте |
+
+Запуск:
+
+```bash
+cd app
+npm install
+npm run dev
+```
+
+Сборка: `npm run build` (в папке `app`).
+
+API: [fakestoreapi.com](https://fakestoreapi.com). Каталог кэшируется в Context, избранное хранится там же.
+
 ## GitHub
 
 https://github.com/kyoshisu/social-network-ui-kit
