@@ -82,7 +82,46 @@ npm run dev
 
 Сборка: `npm run build` (в папке `app`).
 
-API: [fakestoreapi.com](https://fakestoreapi.com). Каталог кэшируется в Context, избранное хранится там же.
+API: [fakestoreapi.com](https://fakestoreapi.com). Каталог кэшируется в Context, избранное хранится в Context и localStorage.
+
+Маршрут `/favourites` — страница избранного (название, количество, мета, удаление).
+
+Тесты (Vitest + React Testing Library, API как у Jest):
+
+```bash
+cd app
+npm test
+```
+
+Сборка и превью:
+
+```bash
+npm run build
+npm run preview
+```
+
+### GitHub Pages
+
+После push в `main` workflow `.github/workflows/deploy-app.yml` публикует приложение.
+
+Ссылка: `https://kyoshisu.github.io/social-network-ui-kit/`
+
+В настройках репозитория: Settings → Pages → Source: GitHub Actions.
+
+### Lighthouse
+
+```bash
+cd app
+npm run build
+npm run preview
+npx lighthouse http://localhost:4173 --only-categories=performance,accessibility --view
+```
+
+Цели: Performance > 80, Accessibility > 90.
+
+### Netlify
+
+Можно подключить репозиторий, base directory: `app`, build: `npm run build`, publish: `dist`.
 
 ## GitHub
 

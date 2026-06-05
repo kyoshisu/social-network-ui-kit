@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useShop } from '../context/ShopContext';
 import ProductCard from '../components/ProductCard';
 import Spinner from '../components/Spinner';
@@ -38,22 +38,27 @@ function List() {
     };
   }, [loadProducts]);
 
+  const cards = useMemo(
+    () => items.map((product) => <ProductCard key={product.id} product={product} />),
+    [items]
+  );
+
   if (loading) {
     return <Spinner />;
   }
 
   if (error) {
-    return <p className="message message--error">{error}</p>;
+    return (
+      <p className="message message--error" role="alert">
+        {error}
+      </p>
+    );
   }
 
   return (
     <section className="page">
       <h1>Каталог товаров</h1>
-      <div className="grid">
-        {items.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      <div className="grid">{cards}</div>
     </section>
   );
 }

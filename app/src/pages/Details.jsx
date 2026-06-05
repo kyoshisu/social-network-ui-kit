@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getProduct } from '../api';
 import { useShop } from '../context/ShopContext';
@@ -50,14 +50,14 @@ function Details() {
     };
   }, [id, getProductFromCache]);
 
-  function handleFavoriteClick() {
+  const handleFavoriteClick = useCallback(() => {
     if (!product) return;
     if (isFavorite(product.id)) {
       removeFromFavorites(product.id);
     } else {
       addToFavorites(product);
     }
-  }
+  }, [product, isFavorite, removeFromFavorites, addToFavorites]);
 
   if (loading) {
     return <Spinner />;
@@ -66,7 +66,9 @@ function Details() {
   if (error) {
     return (
       <section className="page">
-        <p className="message message--error">{error}</p>
+        <p className="message message--error" role="alert">
+          {error}
+        </p>
         <Link to="/list" className="button button--secondary">
           Назад к списку
         </Link>
@@ -82,7 +84,13 @@ function Details() {
         ← К списку
       </Link>
       <div className="details__layout">
-        <img className="details__image" src={product.image} alt={product.title} />
+        <img
+          className="details__image"
+          src={product.image}
+          alt={product.title}
+          width={400}
+          height={400}
+        />
         <div className="details__info">
           <h1>{product.title}</h1>
           <p className="details__meta">
