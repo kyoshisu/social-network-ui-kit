@@ -40,6 +40,27 @@ npm install
 npm run build:css
 ```
 
+## Домашнее задание: асинхронный JavaScript
+
+Папка `async-javascript/`:
+
+| Файл | Задание |
+|------|---------|
+| `task1-event-loop.js` | Event Loop (console.log, setTimeout, Promise) |
+| `task2-promise.js` | Цепочка Promise и fetchData |
+| `task3-async-await.js` | То же через async/await |
+| `task4-progress-bar.html` | Прогресс-бар на 5 секунд |
+
+Запуск в терминале:
+
+```bash
+node async-javascript/task1-event-loop.js
+node async-javascript/task2-promise.js
+node async-javascript/task3-async-await.js
+```
+
+Задание 4 — открыть `async-javascript/task4-progress-bar.html` в браузере.
+
 ## GitHub
 
 https://github.com/kyoshisu/social-network-ui-kit
